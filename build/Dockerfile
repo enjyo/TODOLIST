@@ -36,14 +36,14 @@ RUN yum -y install \
            gdbm-devel \
            python-devel
 
-# Python3.5.2をインストール
-# Python3.5.2をダウンロード
+# Python3.7.2をインストール
+# Python3.7.2をダウンロード
 WORKDIR /root
-RUN wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
-RUN tar xzvf Python-3.5.2.tgz
+RUN wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz
+RUN tar xzvf Python-3.7.2.tgz
 
 # makeでインストール
-WORKDIR ./Python-3.5.2
+WORKDIR ./Python-3.7.2
 RUN ./configure --with-threads
 RUN make install
 
@@ -52,13 +52,13 @@ RUN wget https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 
 # readlineインストール
-RUN pip install readline
+RUN pip3 install readline
 
 # virtualenvインストール
-RUN pip install virtualenv
+RUN pip3 install virtualenv
 
 # Djangoインストール
-RUN pip install django
+RUN pip3 install django
 
 # おまけ
 # Django以外のフレームワークインストール
